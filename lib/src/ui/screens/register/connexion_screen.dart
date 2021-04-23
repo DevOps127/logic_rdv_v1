@@ -161,7 +161,10 @@ class _ConnexionScreenState extends State<ConnexionScreen> {
                     const SizedBox(height: 16),
                     DefaultElevatedButton(
                       textFieldHeight: _textFieldHeight,
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context)
+                            .pushNamed(RouteGenerator.myAppointmentScreen);
+                      },
                       child: const Text('Se connecter'),
                     ),
                     const SizedBox(height: 8),

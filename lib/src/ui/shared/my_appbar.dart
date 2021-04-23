@@ -14,7 +14,6 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      elevation: 0,
       leading: IconButton(
         splashRadius: 20,
         icon: const Icon(
@@ -34,7 +33,6 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       actions: actions,
       centerTitle: centerTile,
-      backgroundColor: primaryColor,
     );
   }
 

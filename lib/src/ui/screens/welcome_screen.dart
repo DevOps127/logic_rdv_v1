@@ -182,7 +182,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         Container(
                           height: 28,
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.of(context)
+                                  .pushNamed(RouteGenerator.registerScreen);
+                            },
                             child: const Text('Inscription rapide'),
                             style: ElevatedButton.styleFrom(
                               elevation: 0,

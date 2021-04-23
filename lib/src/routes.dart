@@ -5,6 +5,7 @@ class RouteGenerator {
   static const String connexionScreen = '/connexion-screen';
   static const String registerScreen = '/register-screen';
   static const String forgotPasswordScreen = '/forgot-password-screen';
+  static const String myAppointmentScreen = '/my_appointment-screen-screen';
 
   static final key = GlobalKey<NavigatorState>();
 
@@ -27,6 +28,10 @@ class RouteGenerator {
       case forgotPasswordScreen:
         return MaterialPageRoute<dynamic>(
           builder: (_) => const ForgotPasswordScreen(),
+        );
+      case myAppointmentScreen:
+        return MaterialPageRoute<dynamic>(
+          builder: (_) => const MyAppointmentScreen(),
         );
       default:
         throw const RouteException('Page not found');
