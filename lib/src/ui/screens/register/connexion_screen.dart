@@ -1,15 +1,15 @@
-import 'package:flutter/material.dart';
-
-import '../screens.dart';
+import '../../helpers/common_import.dart';
+import '../../shared/buttons/default_elevated_button.dart';
+import '../../shared/default_textformfield.dart';
 
 class ConnexionScreen extends StatefulWidget {
+  const ConnexionScreen({Key key}) : super(key: key);
   @override
   _ConnexionScreenState createState() => _ConnexionScreenState();
 }
 
 class _ConnexionScreenState extends State<ConnexionScreen> {
   bool _showPassword = false;
-  Color primaryColor = Color(0xFF4e8fda);
   bool _isChecked = false;
 
   double _textFieldHeight = 0;
@@ -28,20 +28,20 @@ class _ConnexionScreenState extends State<ConnexionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFd3e0ea),
+      backgroundColor: AppColors.colorScaffoldBackground,
       appBar: AppBar(
         elevation: 0,
         brightness: Brightness.dark,
         leading: IconButton(
           splashRadius: 20,
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_ios,
             size: 20,
             color: Colors.white,
           ),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: Text(
+        title: const Text(
           'Se connecter',
           style: TextStyle(
             fontSize: 17.5,
@@ -59,7 +59,7 @@ class _ConnexionScreenState extends State<ConnexionScreen> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Container(
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(12),
@@ -67,7 +67,7 @@ class _ConnexionScreenState extends State<ConnexionScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Text(
+                    const Text(
                       'J\'ai déjà un compte LogicRdv',
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -77,53 +77,43 @@ class _ConnexionScreenState extends State<ConnexionScreen> {
                       ),
                     ),
                     const SizedBox(height: 20),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        contentPadding:
-                            EdgeInsets.symmetric(horizontal: 16, vertical: 0),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                            color: Color(0xFFd3e0ea),
-                            width: 0,
-                          ),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                            color: Color(0xFFd3e0ea),
-                            width: 0,
-                          ),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        disabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                            color: Colors.grey,
-                            width: 0,
-                          ),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        hintText: 'Adresse email ou numéro de téléphone',
-                        hintStyle: TextStyle(
-                          fontWeight: FontWeight.normal,
-                          fontSize: 14,
-                          color: Color(0xFFd3e0ea),
-                        ),
-                      ),
+                    DefaultTextFormField(
+                      hintText: 'Adresse email ou numéro de téléphone',
+                      validator: (value) {},
                     ),
                     const SizedBox(height: 8),
                     TextFormField(
                       key: _key,
                       decoration: InputDecoration(
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           Icons.lock,
                           color: Color(0xFFd3e0ea),
                         ),
-                        suffixIcon: Icon(
-                          Icons.remove_red_eye_outlined,
-                          color: Color(0xFFd3e0ea),
-                        ),
-                        contentPadding:
-                            EdgeInsets.symmetric(horizontal: 16, vertical: 0),
+                        suffixIcon: _showPassword
+                            ? InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    _showPassword = !_showPassword;
+                                  });
+                                },
+                                child: const Icon(
+                                  Icons.remove_red_eye_outlined,
+                                  color: AppColors.colorHintText,
+                                ),
+                              )
+                            : InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    _showPassword = !_showPassword;
+                                  });
+                                },
+                                child: const Icon(
+                                  Icons.remove_red_eye_outlined,
+                                  color: AppColors.colorHintText,
+                                ),
+                              ),
+                        contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 0),
                         enabledBorder: OutlineInputBorder(
                           borderSide: const BorderSide(
                             color: Color(0xFFd3e0ea),
@@ -146,10 +136,10 @@ class _ConnexionScreenState extends State<ConnexionScreen> {
                           borderRadius: BorderRadius.circular(12),
                         ),
                         hintText: 'Mot de passe',
-                        hintStyle: TextStyle(
+                        hintStyle: const TextStyle(
                           fontWeight: FontWeight.normal,
                           fontSize: 14,
-                          color: Color(0xFFd3e0ea),
+                          color: AppColors.colorHintText,
                         ),
                       ),
                     ),
@@ -164,42 +154,35 @@ class _ConnexionScreenState extends State<ConnexionScreen> {
                             });
                           },
                         ),
-                        SizedBox(width: 8),
-                        Text('Se souvenir de moi'),
+                        const SizedBox(width: 8),
+                        const Text('Se souvenir de moi'),
                       ],
                     ),
                     const SizedBox(height: 16),
-                    Container(
-                      height: _textFieldHeight,
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        child: Text('Se connecter'),
-                        style: ElevatedButton.styleFrom(
-                          padding: EdgeInsets.all(12),
-                          elevation: 0,
-                          primary: primaryColor,
-                          onPrimary: Colors.white,
-                        ),
-                      ),
+                    DefaultElevatedButton(
+                      textFieldHeight: _textFieldHeight,
+                      onPressed: () {},
+                      child: const Text('Se connecter'),
                     ),
                     const SizedBox(height: 8),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () => Navigator.of(context)
+                          .pushNamed(RouteGenerator.forgotPasswordScreen),
                       child: Text(
                         'Mot de passe oubliè'.toUpperCase(),
-                        style: TextStyle(
-                          color: primaryColor,
+                        style: const TextStyle(
+                          color: AppColors.colorPrimary,
                           fontSize: 12,
                         ),
                       ),
                     ),
-                    Divider(),
+                    const Divider(),
                   ],
                 ),
               ),
               const SizedBox(height: 20),
               Container(
-                padding: EdgeInsets.only(
+                padding: const EdgeInsets.only(
                   top: 16,
                   left: 16,
                   right: 16,
@@ -211,7 +194,7 @@ class _ConnexionScreenState extends State<ConnexionScreen> {
                 ),
                 child: Column(
                   children: [
-                    Text(
+                    const Text(
                       'Nouveau sur LogicRdv ?',
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -222,15 +205,12 @@ class _ConnexionScreenState extends State<ConnexionScreen> {
                     ),
                     TextButton(
                       onPressed: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => RegisterScreen(),
-                          ),
-                        );
+                        Navigator.of(context)
+                            .pushNamed(RouteGenerator.registerScreen);
                       },
                       child: Text(
                         'Inscription Rapide'.toUpperCase(),
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 12,
                         ),
                       ),
@@ -301,21 +281,24 @@ class __CheckBoxRemenberMeState extends State<_CheckBoxRemenberMe>
       child: AnimatedContainer(
         duration: widget.transitionDuration,
         decoration: BoxDecoration(
-          color: widget.isChecked ? Color(0xFF4e8fda) : Colors.transparent,
+          color:
+              widget.isChecked ? const Color(0xFF4e8fda) : Colors.transparent,
           border: Border.all(
-            color: widget.isChecked ? Color(0xFF4e8fda) : Color(0xFFd3e0ea),
+            color: widget.isChecked
+                ? const Color(0xFF4e8fda)
+                : const Color(0xFFd3e0ea),
           ),
           borderRadius: BorderRadius.circular(4),
         ),
         child: widget.isChecked
             ? ScaleTransition(
                 scale: _controller,
-                child: Icon(
+                child: const Icon(
                   Icons.check,
                   color: Color(0xFFd3e0ea),
                 ),
               )
-            : SizedBox(width: 24, height: 24),
+            : const SizedBox(width: 24, height: 24),
       ),
     );
   }

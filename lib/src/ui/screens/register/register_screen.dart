@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../helpers/common_import.dart';
+import '../../shared/default_textformfield.dart';
+
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen();
   @override
@@ -8,7 +11,6 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   bool _showPassword = false;
-  Color primaryColor = Color(0xFF4e8fda);
   bool _isChecked = false;
 
   double _textFieldHeight = 0;
@@ -27,21 +29,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFd3e0ea),
+      backgroundColor: AppColors.colorScaffoldBackground,
       appBar: AppBar(
         elevation: 0,
-        brightness: Brightness.dark,
         leading: IconButton(
           splashRadius: 20,
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_ios,
             size: 20,
             color: Colors.white,
           ),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: Text(
-          'Se connecter',
+        title: const Text(
+          'Inscription rapide',
           style: TextStyle(
             fontSize: 17.5,
             fontWeight: FontWeight.w700,
@@ -58,7 +59,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Container(
-                padding: EdgeInsets.only(
+                padding: const EdgeInsets.only(
                   top: 16,
                   left: 16,
                   right: 16,
@@ -70,7 +71,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 child: Column(
                   children: [
-                    Text(
+                    const Text(
                       'J\'ai déjà un compte LogicRdv',
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -85,7 +86,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       },
                       child: Text(
                         'Se connecter'.toUpperCase(),
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 12,
                         ),
                       ),
@@ -95,7 +96,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
               const SizedBox(height: 20),
               Container(
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(12),
@@ -103,7 +104,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Text(
+                    const Text(
                       'Nouveau sur LogicRdv',
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -113,7 +114,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                     ),
                     const SizedBox(height: 16),
-                    Text(
+                    const Text(
                       'Saisissez vos informations pour continuer',
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -122,47 +123,47 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                     ),
                     const SizedBox(height: 20),
-                    DefaultTextField(
+                    const DefaultTextFormField(
                       hintText: 'Nom',
                     ),
                     const SizedBox(height: 8),
-                    DefaultTextField(
+                    const DefaultTextFormField(
                       hintText: 'Prénom',
                     ),
                     const SizedBox(height: 8),
-                    DefaultTextField(
+                    const DefaultTextFormField(
                       hintText: 'Numèro de téléphone',
                     ),
                     const SizedBox(height: 8),
-                    DefaultTextField(
+                    const DefaultTextFormField(
                       hintText: 'Email',
                     ),
                     const SizedBox(height: 8),
-                    DefaultTextField(
+                    const DefaultTextFormField(
                       hintText: 'Adresse',
                     ),
                     const SizedBox(height: 8),
-                    DefaultTextField(
+                    const DefaultTextFormField(
                       hintText: 'Ville',
                     ),
                     const SizedBox(height: 8),
-                    DefaultTextField(
+                    const DefaultTextFormField(
                       hintText: 'Code Postal',
                     ),
                     const SizedBox(height: 8),
                     TextFormField(
                       key: _key,
                       decoration: InputDecoration(
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           Icons.lock,
                           color: Color(0xFFd3e0ea),
                         ),
-                        suffixIcon: Icon(
+                        suffixIcon: const Icon(
                           Icons.remove_red_eye_outlined,
                           color: Color(0xFFd3e0ea),
                         ),
-                        contentPadding:
-                            EdgeInsets.symmetric(horizontal: 16, vertical: 0),
+                        contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 0),
                         enabledBorder: OutlineInputBorder(
                           borderSide: const BorderSide(
                             color: Color(0xFFd3e0ea),
@@ -185,7 +186,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           borderRadius: BorderRadius.circular(12),
                         ),
                         hintText: 'Mot de passe',
-                        hintStyle: TextStyle(
+                        hintStyle: const TextStyle(
                           fontWeight: FontWeight.normal,
                           fontSize: 14,
                           color: Color(0xFFd3e0ea),
@@ -195,16 +196,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     const SizedBox(height: 8),
                     TextFormField(
                       decoration: InputDecoration(
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           Icons.lock,
                           color: Color(0xFFd3e0ea),
                         ),
-                        suffixIcon: Icon(
+                        suffixIcon: const Icon(
                           Icons.remove_red_eye_outlined,
                           color: Color(0xFFd3e0ea),
                         ),
-                        contentPadding:
-                            EdgeInsets.symmetric(horizontal: 16, vertical: 0),
+                        contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 0),
                         enabledBorder: OutlineInputBorder(
                           borderSide: const BorderSide(
                             color: Color(0xFFd3e0ea),
@@ -227,7 +228,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           borderRadius: BorderRadius.circular(12),
                         ),
                         hintText: 'Confirmer le mot de passe',
-                        hintStyle: TextStyle(
+                        hintStyle: const TextStyle(
                           fontWeight: FontWeight.normal,
                           fontSize: 14,
                           color: Color(0xFFd3e0ea),
@@ -239,65 +240,21 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       height: _textFieldHeight,
                       child: ElevatedButton(
                         onPressed: () {},
-                        child: Text('M\'inscrire'),
+                        child: const Text('M\'inscrire'),
                         style: ElevatedButton.styleFrom(
-                          padding: EdgeInsets.all(12),
+                          padding: const EdgeInsets.all(12),
                           elevation: 0,
                           primary: primaryColor,
                           onPrimary: Colors.white,
                         ),
                       ),
                     ),
-                    Divider(),
+                    const Divider(),
                   ],
                 ),
               ),
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class DefaultTextField extends StatelessWidget {
-  final String hintText;
-  const DefaultTextField({
-    Key key,
-    this.hintText,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      decoration: InputDecoration(
-        contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 0),
-        enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(
-            color: Color(0xFFd3e0ea),
-            width: 0,
-          ),
-          borderRadius: BorderRadius.circular(12),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(
-            color: Color(0xFFd3e0ea),
-            width: 0,
-          ),
-          borderRadius: BorderRadius.circular(12),
-        ),
-        disabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(
-            color: Colors.grey,
-            width: 0,
-          ),
-          borderRadius: BorderRadius.circular(12),
-        ),
-        hintText: hintText,
-        hintStyle: TextStyle(
-          fontWeight: FontWeight.normal,
-          fontSize: 14,
-          color: Color(0xFFd3e0ea),
         ),
       ),
     );

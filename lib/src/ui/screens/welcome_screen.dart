@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dash/flutter_dash.dart';
+import 'package:logic_rdv_v1/src/routes.dart';
+import 'package:logic_rdv_v1/src/ui/shared/my_appointment_item.dart';
 
 import 'screens.dart';
 
 const primaryColor = Color(0xFF4e8fda);
 
 class WelcomeScreen extends StatefulWidget {
-  const WelcomeScreen();
+  const WelcomeScreen({Key key}) : super(key: key);
   @override
   _WelcomeScreenState createState() => _WelcomeScreenState();
 }
@@ -33,13 +34,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             padding: const EdgeInsets.only(right: 8),
             child: TextButton(
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => ConnexionScreen(),
-                  ),
-                );
+                Navigator.of(context).pushNamed(RouteGenerator.connexionScreen);
               },
-              child: Text(
+              child: const Text(
                 'Se connecter',
                 style: TextStyle(
                   fontSize: 14,
@@ -66,8 +63,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 },
                 decoration: InputDecoration(
                   contentPadding:
-                      EdgeInsets.symmetric(horizontal: 16, vertical: 0),
-                  prefixIcon: Icon(Icons.search),
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
+                  prefixIcon: const Icon(Icons.search),
                   enabledBorder: OutlineInputBorder(
                     borderSide: const BorderSide(
                       color: Colors.grey,
@@ -90,7 +87,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     borderRadius: BorderRadius.circular(12),
                   ),
                   hintText: 'Rechercher un praticien',
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                     fontWeight: FontWeight.w500,
                     fontSize: 14,
                   ),
@@ -99,7 +96,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             ),
             Container(
               height: 100,
-              margin: EdgeInsets.only(
+              margin: const EdgeInsets.only(
                 top: 20,
                 left: 16,
                 right: 16,
@@ -172,7 +169,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       crossAxisAlignment: CrossAxisAlignment.end,
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Text(
+                        const Text(
                           'Bienvenue sur\nLogicRdv',
                           textAlign: TextAlign.right,
                           style: TextStyle(
@@ -186,7 +183,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                           height: 28,
                           child: ElevatedButton(
                             onPressed: () {},
-                            child: Text('Inscription rapide'),
+                            child: const Text('Inscription rapide'),
                             style: ElevatedButton.styleFrom(
                               elevation: 0,
                               shape: RoundedRectangleBorder(
@@ -210,173 +207,174 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 onSubTitleTap: () {}),
             Container(
               height: 80,
-              margin: EdgeInsets.only(top: 6),
+              margin: const EdgeInsets.only(top: 6),
               child: ListView(
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 children: [
-                  _SpecialityItem(
+                  const _SpecialityItem(
                     imageUrl: 'assets/images/dentist.png',
                     text: 'Sois dentaire',
                   ),
-                  _SpecialityItem(
+                  const _SpecialityItem(
                     imageUrl: 'assets/images/genecologie.png',
                     text: 'Génécologie',
                   ),
-                  _SpecialityItem(
+                  const _SpecialityItem(
                     imageUrl: 'assets/images/eye.png',
                     text: 'Ophtamologie',
                   ),
-                  _SpecialityItem(
+                  const _SpecialityItem(
                     imageUrl: 'assets/images/pediatrie.jpg',
                     text: 'Pédiatrie',
                   ),
-                  _SpecialityItem(
+                  const _SpecialityItem(
                     imageUrl: 'assets/images/neurologie.png',
                     text: 'Neurologie',
                   ),
                 ],
               ),
             ),
-            // const SizedBox(height: 16),
-            // _RowMenuSeeAll(
-            //     title: 'Praticiens disponible',
-            //     subtitle: 'Voir tous',
-            //     onSubTitleTap: () {}),
-            // _MyTodayAppointmentItem(),
-            // const SizedBox(height: 16),
-            // _RowMenuSeeAll(
-            //   title: 'Meilleurs praticiens',
-            //   subtitle: 'Voir tous',
-            //   onSubTitleTap: () {},
-            // ),
-            // const SizedBox(height: 16),
-            // Card(
-            //   shape: RoundedRectangleBorder(
-            //     borderRadius: BorderRadius.circular(12),
-            //   ),
-            //   shadowColor: primaryColor,
-            //   margin: EdgeInsets.symmetric(horizontal: 16),
-            //   child: Padding(
-            //     padding: const EdgeInsets.only(
-            //       top: 16,
-            //       left: 16,
-            //       right: 8,
-            //       bottom: 16,
-            //     ),
-            //     child: Stack(
-            //       fit: StackFit.loose,
-            //       children: [
-            //         Row(
-            //           children: [
-            //             Container(
-            //               height: 120,
-            //               width: 100,
-            //               decoration: BoxDecoration(
-            //                 borderRadius: BorderRadius.circular(12),
-            //                 image: DecorationImage(
-            //                   image: AssetImage('assets/images/doctore.jpg'),
-            //                   fit: BoxFit.cover,
-            //                 ),
-            //               ),
-            //             ),
-            //             const SizedBox(width: 16),
-            //             Column(
-            //               crossAxisAlignment: CrossAxisAlignment.start,
-            //               children: [
-            //                 Text(
-            //                   'Dr. Anna Wells',
-            //                   overflow: TextOverflow.ellipsis,
-            //                   style: TextStyle(
-            //                       fontWeight: FontWeight.bold,
-            //                       fontSize: 14,
-            //                       color: Colors.black),
-            //                 ),
-            //                 const SizedBox(height: 4),
-            //                 Text(
-            //                   'Cardiologue, MBBS',
-            //                   overflow: TextOverflow.ellipsis,
-            //                   style: TextStyle(
-            //                     fontSize: 13,
-            //                     fontWeight: FontWeight.w500,
-            //                   ),
-            //                 ),
-            //                 const SizedBox(height: 4),
-            //                 Text(
-            //                   '8+ d\'expérience',
-            //                   overflow: TextOverflow.ellipsis,
-            //                   style: TextStyle(
-            //                     fontSize: 12,
-            //                     color: Colors.grey.shade400,
-            //                   ),
-            //                 ),
-            //                 const SizedBox(height: 4),
-            //                 Row(
-            //                   children: [
-            //                     Row(
-            //                       children: [
-            //                         const Icon(
-            //                           Icons.star,
-            //                           color: Colors.yellow,
-            //                           size: 16,
-            //                         ),
-            //                         const SizedBox(width: 2),
-            //                         Text(
-            //                           '4.8',
-            //                           style: TextStyle(
-            //                             fontSize: 13,
-            //                             fontWeight: FontWeight.bold,
-            //                           ),
-            //                         ),
-            //                       ],
-            //                     ),
-            //                     const SizedBox(width: 2),
-            //                     Text(
-            //                       '(66 Notes)',
-            //                       style: TextStyle(
-            //                         fontSize: 12,
-            //                       ),
-            //                     ),
-            //                   ],
-            //                 ),
-            //                 const SizedBox(height: 8),
-            //                 Container(
-            //                   height: 30,
-            //                   child: ElevatedButton(
-            //                     onPressed: () {},
-            //                     child: Text('Prendre Rendez-vous'),
-            //                     style: ElevatedButton.styleFrom(
-            //                       primary: primaryColor,
-            //                       onPrimary: Colors.white,
-            //                     ),
-            //                   ),
-            //                 )
-            //               ],
-            //             ),
-            //           ],
-            //         ),
-            //         Positioned(
-            //           top: -12,
-            //           right: -8,
-            //           child: IconButton(
-            //             splashRadius: 20,
-            //             icon: Icon(
-            //               _markAsFavorite
-            //                   ? Icons.favorite_outline
-            //                   : Icons.favorite,
-            //               color: primaryColor,
-            //             ),
-            //             onPressed: () {
-            //               setState(() {
-            //                 _markAsFavorite = !_markAsFavorite;
-            //               });
-            //             },
-            //           ),
-            //         )
-            //       ],
-            //     ),
-            //   ),
-            // ),
+            const SizedBox(height: 16),
+            _RowMenuSeeAll(
+              title: 'Praticiens disponible',
+              subtitle: 'Voir tous',
+              onSubTitleTap: () {},
+            ),
+            const MyTodayAppointmentItem(),
+            const SizedBox(height: 16),
+            _RowMenuSeeAll(
+              title: 'Meilleurs praticiens',
+              subtitle: 'Voir tous',
+              onSubTitleTap: () {},
+            ),
+            const SizedBox(height: 16),
+            Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              shadowColor: primaryColor,
+              margin: const EdgeInsets.symmetric(horizontal: 16),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  top: 16,
+                  left: 16,
+                  right: 8,
+                  bottom: 16,
+                ),
+                child: Stack(
+                  fit: StackFit.loose,
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          height: 120,
+                          width: 100,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            image: const DecorationImage(
+                              image: AssetImage('assets/images/doctore.jpg'),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 16),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              'Dr. Anna Wells',
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 14,
+                                  color: Colors.black),
+                            ),
+                            const SizedBox(height: 4),
+                            const Text(
+                              'Cardiologue, MBBS',
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                fontSize: 13,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            const SizedBox(height: 4),
+                            Text(
+                              '8+ d\'expérience',
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.grey.shade400,
+                              ),
+                            ),
+                            const SizedBox(height: 4),
+                            Row(
+                              children: [
+                                Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.star,
+                                      color: Colors.yellow,
+                                      size: 16,
+                                    ),
+                                    const SizedBox(width: 2),
+                                    const Text(
+                                      '4.8',
+                                      style: TextStyle(
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(width: 2),
+                                const Text(
+                                  '(66 Notes)',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 8),
+                            Container(
+                              height: 30,
+                              child: ElevatedButton(
+                                onPressed: () {},
+                                child: const Text('Prendre Rendez-vous'),
+                                style: ElevatedButton.styleFrom(
+                                  primary: primaryColor,
+                                  onPrimary: Colors.white,
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                    Positioned(
+                      top: -12,
+                      right: -8,
+                      child: IconButton(
+                        splashRadius: 20,
+                        icon: Icon(
+                          _markAsFavorite
+                              ? Icons.favorite_outline
+                              : Icons.favorite,
+                          color: primaryColor,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            _markAsFavorite = !_markAsFavorite;
+                          });
+                        },
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -442,7 +440,7 @@ class _CustomAppBar extends StatelessWidget {
 
         TextButton(
           onPressed: () {},
-          child: Text(
+          child: const Text(
             'Se connecter',
             style: TextStyle(
               fontSize: 14,
@@ -459,125 +457,6 @@ class _CustomAppBar extends StatelessWidget {
         //   onPressed: () {},
         // ),
       ],
-    );
-  }
-}
-
-class _MyTodayAppointmentItem extends StatelessWidget {
-  const _MyTodayAppointmentItem({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-      ),
-      margin: EdgeInsets.only(
-        top: 16,
-        left: 16,
-        right: 16,
-      ),
-      child: Container(
-        padding: EdgeInsets.all(16),
-        child: Row(
-          children: [
-            Container(
-              height: 70,
-              width: 70,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                image: DecorationImage(
-                  image: AssetImage('assets/images/doctor.jpg'),
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            const SizedBox(width: 16),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  'Dr. Philippe Bodouin',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                Row(
-                  children: [
-                    Icon(
-                      Icons.location_on_outlined,
-                      size: 14,
-                      color: primaryColor,
-                    ),
-                    const SizedBox(width: 6),
-                    Text(
-                      '18e Arrond, Paris',
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.grey.shade500,
-                      ),
-                    ),
-                  ],
-                )
-              ],
-            ),
-            Spacer(),
-            Dash(
-              direction: Axis.vertical,
-              length: 70,
-              dashLength: 1,
-              dashColor: Colors.grey,
-            ),
-            Spacer(),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  '18h00'.toUpperCase(),
-                  style: TextStyle(
-                    color: primaryColor,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  '16, Avril'.toLowerCase(),
-                  style: TextStyle(
-                    fontSize: 11,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.grey.shade500,
-                  ),
-                )
-              ],
-            )
-          ],
-        ),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            stops: [
-              0.1,
-              0.6,
-              0.6,
-            ],
-            colors: [
-              primaryColor.withOpacity(.7),
-              Colors.white60,
-              Colors.white60,
-            ],
-          ),
-        ),
-      ),
     );
   }
 }
@@ -612,7 +491,7 @@ class _SpecialityItem extends StatelessWidget {
             const SizedBox(height: 6),
             Text(
               text,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 13,
               ),
             ),
@@ -643,14 +522,14 @@ class _RowMenuSeeAll extends StatelessWidget {
         children: [
           Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.w600,
               fontSize: 16,
             ),
           ),
           InkWell(
             onTap: onSubTitleTap,
-            child: Text('Voir Tous'),
+            child: const Text('Voir Tous'),
           )
         ],
       ),
