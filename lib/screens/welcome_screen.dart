@@ -237,145 +237,145 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 ],
               ),
             ),
-            const SizedBox(height: 16),
-            _RowMenuSeeAll(
-                title: 'Praticiens disponible',
-                subtitle: 'Voir tous',
-                onSubTitleTap: () {}),
-            _MyTodayAppointmentItem(),
-            const SizedBox(height: 16),
-            _RowMenuSeeAll(
-              title: 'Meilleurs praticiens',
-              subtitle: 'Voir tous',
-              onSubTitleTap: () {},
-            ),
-            const SizedBox(height: 16),
-            Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
-              ),
-              shadowColor: primaryColor,
-              margin: EdgeInsets.symmetric(horizontal: 16),
-              child: Padding(
-                padding: const EdgeInsets.only(
-                  top: 16,
-                  left: 16,
-                  right: 8,
-                  bottom: 16,
-                ),
-                child: Stack(
-                  fit: StackFit.loose,
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          height: 120,
-                          width: 100,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12),
-                            image: DecorationImage(
-                              image: AssetImage('assets/images/doctore.jpg'),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 16),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Dr. Anna Wells',
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 14,
-                                  color: Colors.black),
-                            ),
-                            const SizedBox(height: 4),
-                            Text(
-                              'Cardiologue, MBBS',
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                fontSize: 13,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                            const SizedBox(height: 4),
-                            Text(
-                              '8+ d\'expérience',
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                fontSize: 12,
-                                color: Colors.grey.shade400,
-                              ),
-                            ),
-                            const SizedBox(height: 4),
-                            Row(
-                              children: [
-                                Row(
-                                  children: [
-                                    const Icon(
-                                      Icons.star,
-                                      color: Colors.yellow,
-                                      size: 16,
-                                    ),
-                                    const SizedBox(width: 2),
-                                    Text(
-                                      '4.8',
-                                      style: TextStyle(
-                                        fontSize: 13,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(width: 2),
-                                Text(
-                                  '(66 Notes)',
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 8),
-                            Container(
-                              height: 30,
-                              child: ElevatedButton(
-                                onPressed: () {},
-                                child: Text('Prendre Rendez-vous'),
-                                style: ElevatedButton.styleFrom(
-                                  primary: primaryColor,
-                                  onPrimary: Colors.white,
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                      ],
-                    ),
-                    Positioned(
-                      top: -12,
-                      right: -8,
-                      child: IconButton(
-                        splashRadius: 20,
-                        icon: Icon(
-                          _markAsFavorite
-                              ? Icons.favorite_outline
-                              : Icons.favorite,
-                          color: primaryColor,
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            _markAsFavorite = !_markAsFavorite;
-                          });
-                        },
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
+            // const SizedBox(height: 16),
+            // _RowMenuSeeAll(
+            //     title: 'Praticiens disponible',
+            //     subtitle: 'Voir tous',
+            //     onSubTitleTap: () {}),
+            // _MyTodayAppointmentItem(),
+            // const SizedBox(height: 16),
+            // _RowMenuSeeAll(
+            //   title: 'Meilleurs praticiens',
+            //   subtitle: 'Voir tous',
+            //   onSubTitleTap: () {},
+            // ),
+            // const SizedBox(height: 16),
+            // Card(
+            //   shape: RoundedRectangleBorder(
+            //     borderRadius: BorderRadius.circular(12),
+            //   ),
+            //   shadowColor: primaryColor,
+            //   margin: EdgeInsets.symmetric(horizontal: 16),
+            //   child: Padding(
+            //     padding: const EdgeInsets.only(
+            //       top: 16,
+            //       left: 16,
+            //       right: 8,
+            //       bottom: 16,
+            //     ),
+            //     child: Stack(
+            //       fit: StackFit.loose,
+            //       children: [
+            //         Row(
+            //           children: [
+            //             Container(
+            //               height: 120,
+            //               width: 100,
+            //               decoration: BoxDecoration(
+            //                 borderRadius: BorderRadius.circular(12),
+            //                 image: DecorationImage(
+            //                   image: AssetImage('assets/images/doctore.jpg'),
+            //                   fit: BoxFit.cover,
+            //                 ),
+            //               ),
+            //             ),
+            //             const SizedBox(width: 16),
+            //             Column(
+            //               crossAxisAlignment: CrossAxisAlignment.start,
+            //               children: [
+            //                 Text(
+            //                   'Dr. Anna Wells',
+            //                   overflow: TextOverflow.ellipsis,
+            //                   style: TextStyle(
+            //                       fontWeight: FontWeight.bold,
+            //                       fontSize: 14,
+            //                       color: Colors.black),
+            //                 ),
+            //                 const SizedBox(height: 4),
+            //                 Text(
+            //                   'Cardiologue, MBBS',
+            //                   overflow: TextOverflow.ellipsis,
+            //                   style: TextStyle(
+            //                     fontSize: 13,
+            //                     fontWeight: FontWeight.w500,
+            //                   ),
+            //                 ),
+            //                 const SizedBox(height: 4),
+            //                 Text(
+            //                   '8+ d\'expérience',
+            //                   overflow: TextOverflow.ellipsis,
+            //                   style: TextStyle(
+            //                     fontSize: 12,
+            //                     color: Colors.grey.shade400,
+            //                   ),
+            //                 ),
+            //                 const SizedBox(height: 4),
+            //                 Row(
+            //                   children: [
+            //                     Row(
+            //                       children: [
+            //                         const Icon(
+            //                           Icons.star,
+            //                           color: Colors.yellow,
+            //                           size: 16,
+            //                         ),
+            //                         const SizedBox(width: 2),
+            //                         Text(
+            //                           '4.8',
+            //                           style: TextStyle(
+            //                             fontSize: 13,
+            //                             fontWeight: FontWeight.bold,
+            //                           ),
+            //                         ),
+            //                       ],
+            //                     ),
+            //                     const SizedBox(width: 2),
+            //                     Text(
+            //                       '(66 Notes)',
+            //                       style: TextStyle(
+            //                         fontSize: 12,
+            //                       ),
+            //                     ),
+            //                   ],
+            //                 ),
+            //                 const SizedBox(height: 8),
+            //                 Container(
+            //                   height: 30,
+            //                   child: ElevatedButton(
+            //                     onPressed: () {},
+            //                     child: Text('Prendre Rendez-vous'),
+            //                     style: ElevatedButton.styleFrom(
+            //                       primary: primaryColor,
+            //                       onPrimary: Colors.white,
+            //                     ),
+            //                   ),
+            //                 )
+            //               ],
+            //             ),
+            //           ],
+            //         ),
+            //         Positioned(
+            //           top: -12,
+            //           right: -8,
+            //           child: IconButton(
+            //             splashRadius: 20,
+            //             icon: Icon(
+            //               _markAsFavorite
+            //                   ? Icons.favorite_outline
+            //                   : Icons.favorite,
+            //               color: primaryColor,
+            //             ),
+            //             onPressed: () {
+            //               setState(() {
+            //                 _markAsFavorite = !_markAsFavorite;
+            //               });
+            //             },
+            //           ),
+            //         )
+            //       ],
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),
