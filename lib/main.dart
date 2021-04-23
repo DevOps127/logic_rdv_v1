@@ -1,23 +1,45 @@
-import 'package:flutter/material.dart';
-import 'package:ui_1/screens/welcome_screen.dart';
+import 'dart:async';
+
+import 'src/ui/helpers/common_import.dart';
+
+bool get isInDebugMode {
+  var inDebugMode = true;
+  assert(inDebugMode = true);
+  return inDebugMode;
+}
 
 void main() {
-  runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  runZonedGuarded(() async {
+    runApp(
+      const MyApp(),
+    );
+  }, (error, stackTrace) async {
+    print('Caught Errors');
+    if (isInDebugMode) {
+      // Print error in the console in the development mode
+      print('$error');
+      print('$stackTrace');
+    } else {}
+  });
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  const MyApp();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Color(0xFF4e8fda),
+        primaryColor: const Color(0xFF4e8fda),
         brightness: Brightness.light,
         primarySwatch: Colors.blue,
       ),
-      home: WelcomeScreen(),
+      title: 'LogicRdv',
+      onGenerateTitle: (_) => 'LogicRdv',
+      navigatorKey: RouteGenerator.key,
+      initialRoute: RouteGenerator.welcomeScreen,
+      onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class SearchDoctorScreen extends StatefulWidget {
-  static const String routeName = 'search-doctor-screen';
   @override
   _SearchDoctorScreenState createState() => _SearchDoctorScreenState();
 }

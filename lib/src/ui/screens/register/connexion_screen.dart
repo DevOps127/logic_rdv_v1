@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ui_1/screens/register_screen.dart';
+
+import '../screens.dart';
 
 class ConnexionScreen extends StatefulWidget {
   @override

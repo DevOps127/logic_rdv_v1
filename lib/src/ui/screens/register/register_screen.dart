@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class RegisterScreen extends StatefulWidget {
+  const RegisterScreen();
   @override
   _RegisterScreenState createState() => _RegisterScreenState();
 }

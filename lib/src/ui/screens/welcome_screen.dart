@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dash/flutter_dash.dart';
-import 'package:ui_1/screens/connexion_screen.dart';
-import 'package:ui_1/screens/search_doctor_screen.dart';
+
+import 'screens.dart';
 
 const primaryColor = Color(0xFF4e8fda);
 
 class WelcomeScreen extends StatefulWidget {
+  const WelcomeScreen();
   @override
   _WelcomeScreenState createState() => _WelcomeScreenState();
 }
